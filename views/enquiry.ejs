@@ -75,7 +75,7 @@ margin-top: 34px !important;
             </div>
             <div class="ashade-nav-block">
 				 <!-- navigation ad ejs file -->
-				 <%include common/navigation.ejs %>
+				 <%- include("common/navigation.ejs"); %>
             </div>
         </div>
     </header>
@@ -530,7 +530,7 @@ margin-top: 34px !important;
 			</div><!-- .ashade-content -->
 			
 			<!-- Footer -->
-			<%include common/footer.ejs %>
+			<%- include("common/footer.ejs") %>
 		</div><!-- .ashade-content-scroll -->
 	</main>
     

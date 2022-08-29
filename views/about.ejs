@@ -29,7 +29,7 @@
             </div>
             <div class="ashade-nav-block">
 			   <!-- navigation included as ejs  -->
-               <%include common/navigation.ejs %>
+               <%- include("common/navigation.ejs"); %>
             </div>
         </div>
     </header>
@@ -68,7 +68,7 @@
 				</div><!-- .ashade-content -->
 			
 			<!-- Footer -->
-			<%include common/footer.ejs %>
+			<%- include("common/footer.ejs") %>
 		</div><!-- .ashade-content-scroll -->
 	</main>
     
@@ -80,7 +80,7 @@
     </div> -->
 
     <!-- Aside Bar -->
-	<%include common/contact-sidebar.ejs %>
+	<%- include("common/contact-sidebar.ejs") %>
     <!-- UI Elements -->
     <div class="ashade-menu-overlay"></div>
     <div class="ashade-aside-overlay"></div>
