@@ -13,7 +13,7 @@ async function getServices(){
           $('#ashade-service-card-grid').append(`<div class="ashade-service-card">
                                                     <div class="ashade-service-card__head">
                                                         <div class="ashade-service-card__image">
-                                                            <img src="${IMAGE_PATH}/services/${service.image}" alt="Personal Session">
+                                                            <img src="${IMAGE_PATH}${service.image}" alt="Personal Session">
                                                         </div>
                                                         <div class="ashade-service-card__label">
                                                             <h4>
