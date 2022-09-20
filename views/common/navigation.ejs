@@ -2,27 +2,31 @@
 .ashade-aside-toggler {
   display: none !important;
 }
+.active a {
+    color: #fff !important;
+}
 </style>
+<script src="js/jquery.min.js"></script>
 <nav class="ashade-nav">
     <ul class="main-menu">
-        <li class="menu-item-has-children">
-            <a href="/">Home</a>
+        <li data-set="1" class="menu-item-has-children">
+            <a class="nav-button" href="/">Home</a>
         </li>
-        <li class="menu-item-has-children">
-            <a href="/portfolio">Showcase</a>
+        <li data-set="2" class="menu-item-has-children">
+            <a class="nav-button" href="/portfolio">Showcase</a>
         </li>
-        <li class="menu-item-has-children ">
-            <a href="/about">About Us</a>
+        <li data-set="3" class="menu-item-has-children ">
+            <a class="nav-button" href="/about">About Us</a>
         </li>
-        <li class="menu-item-has-children">
-            <a href="/services">Services</a>
+        <li data-set="4" class="menu-item-has-children">
+            <a class="nav-button" href="/services">Services</a>
         </li>
         
-        <li class="menu-item-has-children">
-            <a href="/enquiry">SHOOT REQUEST</a>
+        <li data-set="5" class="menu-item-has-children">
+            <a class="nav-button" href="/enquiry">SHOOT REQUEST</a>
         </li>
-        <li class="menu-item-has-children">
-            <a href="/contact">Contact</a>
+        <li data-set="6" class="menu-item-has-children">
+            <a class="nav-button" href="/contact">Contact</a>
         </li>
         <!-- <li>
             <a href="#" class="ashade-aside-toggler">
@@ -33,3 +37,20 @@
         </li> -->
     </ul>
 </nav>
+
+
+
+<script>
+let pageId = localStorage.getItem("pageId");
+if(pageId != null)
+{
+    jQuery('.menu-item-has-children').removeClass('active');
+    var nav = jQuery('.menu-item-has-children').find("[data-set='" + pageId + "']").prevObject[pageId - 1].classList.add('active'); 
+}
+
+
+
+ jQuery('.nav-button').click(function(e){
+ localStorage.setItem("pageId",jQuery(this)[0].parentElement.dataset.set);
+});
+</script>
