@@ -15,14 +15,23 @@ async function getPortfolioDetail(){
      //  $('#ashade-page-title').append(`<span>${portfolio.short_title.split(" ").splice(0,6).join(" ")}</span>${portfolio.title.split(" ").splice(0,4).join(" ")}`);
        
        images.forEach(image => {
-        //  console.log(`${IMAGE_PATH}/portfolio/${image.image}`);       
+        //  console.log(`${IMAGE_PATH}/portfolio/${image.image}`);
          // $('.gallery').append(`<div><img class="gallery__Image" src="${IMAGE_PATH}/portfolio/${image.image}" alt="lorem" data-description="" data-large="${IMAGE_PATH}/portfolio/${image.image}">
          // </div>`);
-            $('.gallery1').append(`<div class="ashade-album-item">
-				<div class="ashade-album-item__inner">
-					<img style="object-fit: cover;" src="${IMAGE_PATH}${image.image}" alt="${image.image}" width="960" height="1200" class="laszy">
-				</div>
-			</div>`);
+          
+          
+            // $('.gallery1').append(`<div class="ashade-album-item">
+				// <div class="ashade-album-item__inner">
+				// 	<img style="object-fit: cover;" src="${IMAGE_PATH}${image.image}" alt="${image.image}" width="960" height="1200" class="laszy">
+				// </div>
+			   // </div>`);
+          
+          $('#gallery1').append(`<div class="ashade-album-item">
+                                            <div class="ashade-album-item__inner">
+                                                <img style="object-fit: cover;" src="${IMAGE_PATH}${image.image}" alt="${image.image}" width="1000" height="1200">
+                                                
+                                            </div>
+                                        </div>`);
          
 ashade_ribbon.init();
          
