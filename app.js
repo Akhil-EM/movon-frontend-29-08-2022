@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(limitRequest({
   windowMs:1000 * 30,
   max:10,
-  message:response("failed",429,false,"too many requests. try after sometime")
+  message: response("failed", 429, false, "too many requests. try after sometime")
 }));
 
 
