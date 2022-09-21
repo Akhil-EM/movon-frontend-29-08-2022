@@ -3,8 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const limitRequest = require("express-rate-limit");
+const compressor = require("compression");
 var indexRouter = require('./routes/index');
+
+
 
 
 
@@ -29,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(limitRequest({
   windowMs:1000 * 30,
   max:10,
-  message: response("failed", 429, false, "too many requests. try after sometime")
+  message:"too many requests. try after sometime"
 }));
 
 
