@@ -5,8 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-const { Z_FIXED } = require('zlib');
-const { Server } = require('http');
+
 
 
 var app = express();
@@ -24,6 +23,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+//limiting concurrent request's 
+//to prevent DOS and DOSS attacks
+//maximum 10 request in 30 seconds
+app.use(limitRequest({
+  windowMs:1000 * 30,
+  max:10,
+  message:response("failed",429,false,"too many requests. try after sometime")
+}));
+
+
+//using compressor package to 
+//decrease payload size
+app.use(compressor());
 
 app.use('/', indexRouter);
 
