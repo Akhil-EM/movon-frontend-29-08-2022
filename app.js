@@ -8,13 +8,10 @@ const compressor = require("compression");
 var indexRouter = require('./routes/index');
 
 
-
+//checking features
 
 
 var app = express();
-
-
-
 
 
 // view engine setup
