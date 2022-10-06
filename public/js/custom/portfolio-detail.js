@@ -33,7 +33,14 @@ async function getPortfolioDetail(){
                                             </div>
                                         </div>`);
          
-ashade_ribbon.init();
+           if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+           }
+           else
+           {
+               ashade_ribbon.init();
+               }
+          
+           
          
 
                                     

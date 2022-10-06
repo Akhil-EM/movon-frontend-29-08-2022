@@ -23,9 +23,9 @@
        height: 374px !important;
 	};
  }
-
+    
 </style>
-<body style="overscroll-behavior: none !important;" class="has-spotlight ashade-albums-template ashade-albums-template--carousel">
+<body class="has-spotlight ashade-albums-template ashade-albums-template--carousel">
     <!-- Header -->
 	<header style=" transition: top 0.3s ease 0s !important;" id="ashade-header">
         <div class="ashade-header-inner">
@@ -132,7 +132,7 @@
       <script src="js/jquery.min.js"></script>
     <script src="js/gsap.min.js"></script>
     <script src="js/core.js"></script>
-    <script src="js/ashade-ribbon.js"></script>
+    <!-- <script src="js/ashade-ribbon.js"></script>  -->
 
 	<script src="js/axios.js" ></script>
 	<script src="js/custom/path.js" ></script>
@@ -143,12 +143,44 @@
    console.log('resize called');
    var width = $(window).width();
    if(width > 600){
+
+	        function loadjs(file) {
+			var script = document.createElement("script");
+			script.type = "text/javascript";
+			script.src = file;
+			script.onload = function(){ };
+            document.body.appendChild(script);
+ }
+            loadjs('js/ashade-ribbon.js');
             $('#albums_carousel').removeClass('is-vertical');
             $('#albums_carousel').addClass('is-large');
    }
    else
-   {
-	 $('#albums_carousel').removeClass('is-large');
+   {         
+
+			 var css = `.ashade-albums-carousel-wrap { padding: 95px 0px 89px !important;}
+	         .ashade-albums-template--carousel .ashade-albums-carousel-wrap {
+	         position: initial !important;
+	         }
+			 .ashade-albums-carousel-wrap .ashade-album-item__title {
+             position: unset !important;
+			 width: unset !important;
+			 }
+			 `,
+			head = document.head || document.getElementsByTagName('head')[0],
+			style = document.createElement('style');
+
+		head.appendChild(style);
+
+		style.type = 'text/css';
+		if (style.styleSheet){
+		// This is required for IE8 and below.
+		style.styleSheet.cssText = css;
+		} else {
+		style.appendChild(document.createTextNode(css));
+		}
+
+	        $('#albums_carousel').removeClass('is-large');
             $('#albums_carousel').addClass('is-vertical');
    }
 })
