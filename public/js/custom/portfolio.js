@@ -22,7 +22,7 @@ async function getPortfolio(){
 }
         portfolios.forEach(portfolio => {
             $('#albums_carousel').append(`<div class="ashade-album-item">
-                                            <div class="ashade-album-item__inner">
+                                            <div class="ashade-album-item__inner is-inview">
                                                 <img style="object-fit: cover;" src="${IMAGE_PATH}${portfolio.thumbImg}" alt="My Special Day" width="1000" height="1200">
                                                 <div class="ashade-album-item__overlay"></div>
                                                 <div class="ashade-album-item__title">
@@ -35,15 +35,19 @@ async function getPortfolio(){
                                             </div>
                                         </div>`);
         });
-        
-        ashade_ribbon.init();
+       if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+           }
+           else
+           {
+               ashade_ribbon.init();
+               }
          
        //remove token 
        axios.delete(`${API_PATH}/util/frontend-token`,{
          headers: {"Authorization":"Bearer "+token}
        })
 
-    }catch(error){
+    } catch(error){
        console.log(error);
        alert("something went wrong")
     }

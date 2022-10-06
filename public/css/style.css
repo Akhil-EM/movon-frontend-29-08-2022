@@ -86,7 +86,7 @@ body {
 	font-weight: 500;
     color: #808080;
 	opacity: 0;
-	pointer-events: none;
+	/* pointer-events: none; */
 }
 body.is-init {
 	opacity: 1;
