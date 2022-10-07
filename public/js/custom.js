@@ -305,7 +305,7 @@ $("#send_enquiry").click(async function (e) {
        if(profileImages.length > 0){
           for (let i = 0; i < profileImages.length; i++) {
               
-              formData.append('profileImages',profileImages[i]);
+              formData.append('enquiryImages',profileImages[i]);
               
           }
        }
