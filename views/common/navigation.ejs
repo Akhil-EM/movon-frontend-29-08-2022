@@ -15,15 +15,15 @@
         <li data-set="2" class="menu-item-has-children">
             <a class="nav-button" href="/portfolio">Showcase</a>
         </li>
-        <li data-set="3" class="menu-item-has-children ">
+        <li style="display: none;" data-set="3" class="menu-item-has-children ">
             <a class="nav-button" href="/about">About Us</a>
         </li>
-        <li data-set="4" class="menu-item-has-children">
+        <li style="display: none;" data-set="4" class="menu-item-has-children">
             <a class="nav-button" href="/services">Services</a>
         </li>
         
         <li data-set="5" class="menu-item-has-children">
-            <a class="nav-button" href="/enquiry">SHOOT REQUEST</a>
+            <label class="nav-button" data-url="/enquiry" href="#">SHOOT REQUEST</label>
         </li>
         <li data-set="6" class="menu-item-has-children">
             <a class="nav-button" href="/contact">Contact</a>
@@ -42,6 +42,7 @@
 
 <script>
 let pageId = localStorage.getItem("pageId");
+console.log(pageId);
 if(pageId != null)
 {
     jQuery('.menu-item-has-children').removeClass('active');
@@ -51,6 +52,8 @@ if(pageId != null)
 
 
  jQuery('.nav-button').click(function(e){
+// e.stopPropagation();
+ console.log(jQuery(this).attr('data-url'))
  localStorage.setItem("pageId",jQuery(this)[0].parentElement.dataset.set);
 });
 </script>
