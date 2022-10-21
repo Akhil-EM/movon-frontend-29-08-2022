@@ -41,9 +41,7 @@
 <script>
   setTimeout(function () {
     currLoc = $(location).attr("href");
-    console.log(currLoc);
     var myString = currLoc.split("4000").pop();
-    console.log(myString);
     jQuery(".menu-item-has-children").each(function () {
       if ($(this)[0].firstElementChild.pathname == myString) {
         $(this).addClass("active");
