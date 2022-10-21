@@ -1,59 +1,53 @@
 <style>
-.ashade-aside-toggler {
-  display: none !important;
-}
-.active a {
+  .ashade-aside-toggler {
+    display: none !important;
+  }
+  .active a {
     color: #fff !important;
-}
+  }
 </style>
 <script src="js/jquery.min.js"></script>
 <nav class="ashade-nav">
-    <ul class="main-menu">
-        <li data-set="1" class="menu-item-has-children">
-            <a class="nav-button" href="/">Home</a>
-        </li>
-        <li data-set="2" class="menu-item-has-children">
-            <a class="nav-button" href="/portfolio">Showcase</a>
-        </li>
-        <li style="display: none;" data-set="3" class="menu-item-has-children ">
-            <a class="nav-button" href="/about">About Us</a>
-        </li>
-        <li style="display: none;" data-set="4" class="menu-item-has-children">
-            <a class="nav-button" href="/services">Services</a>
-        </li>
-        
-        <li data-set="5" class="menu-item-has-children">
-            <label class="nav-button" data-url="/enquiry" href="#">SHOOT REQUEST</label>
-        </li>
-        <li data-set="6" class="menu-item-has-children">
-            <a class="nav-button" href="/contact">Contact</a>
-        </li>
-        <!-- <li>
+  <ul class="main-menu">
+    <li class="menu-item-has-children">
+      <a class="nav-button" href="/">Home</a>
+    </li>
+    <li class="menu-item-has-children">
+      <a class="nav-button" href="/portfolio">Showcase</a>
+    </li>
+    <li style="display: none" data-set="3" class="menu-item-has-children">
+      <a class="nav-button" href="/about">About Us</a>
+    </li>
+    <li style="display: none" data-set="4" class="menu-item-has-children">
+      <a class="nav-button" href="/services">Services</a>
+    </li>
+
+    <li class="menu-item-has-children">
+      <a class="nav-button" href="/enquiry">SHOOT REQUEST</a>
+    </li>
+    <li data-set="6" class="menu-item-has-children">
+      <a class="nav-button" href="/contact">Contact</a>
+    </li>
+    <!-- <li>
             <a href="#" class="ashade-aside-toggler">
                 <span class="ashade-aside-toggler__icon01"></span>
                 <span class="ashade-aside-toggler__icon02"></span>
                 <span class="ashade-aside-toggler__icon03"></span>
             </a>
         </li> -->
-    </ul>
+  </ul>
 </nav>
 
-
-
 <script>
-let pageId = localStorage.getItem("pageId");
-console.log(pageId);
-if(pageId != null)
-{
-    jQuery('.menu-item-has-children').removeClass('active');
-    var nav = jQuery('.menu-item-has-children').find("[data-set='" + pageId + "']").prevObject[pageId - 1].classList.add('active'); 
-}
-
-
-
- jQuery('.nav-button').click(function(e){
-// e.stopPropagation();
- console.log(jQuery(this).attr('data-url'))
- localStorage.setItem("pageId",jQuery(this)[0].parentElement.dataset.set);
-});
+  setTimeout(function () {
+    currLoc = $(location).attr("href");
+    console.log(currLoc);
+    var myString = currLoc.split("4000").pop();
+    console.log(myString);
+    jQuery(".menu-item-has-children").each(function () {
+      if ($(this)[0].firstElementChild.pathname == myString) {
+        $(this).addClass("active");
+      }
+    });
+  }, 1000);
 </script>
