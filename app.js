@@ -27,8 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 //to prevent DOS and DOSS attacks
 //maximum 10 request in 30 seconds
 app.use(limitRequest({
-  windowMs:1000 * 30,
-  max:10,
+  windowMs: 15 * 60 * 1000, // 15 minutes
+	max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
   message:"too many requests. try after sometime"
 }));
 
