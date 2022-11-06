@@ -52,7 +52,7 @@ async function getPortfolio() {
     });
   } catch (error) {
     console.log(error);
-    alert("something went wrong");
+    
   }
 }
 
